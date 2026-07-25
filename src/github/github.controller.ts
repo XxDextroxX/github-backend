@@ -8,7 +8,9 @@ export class GithubController {
   constructor(private readonly githubService: GithubService) {}
 
   @Get('users/:username')
-  @ApiOperation({ summary: 'Obtiene el perfil público de un usuario de GitHub' })
+  @ApiOperation({
+    summary: 'Obtiene el perfil público de un usuario de GitHub',
+  })
   @ApiParam({ name: 'username', example: 'XxDextroxX' })
   async getUser(@Param('username') username: string) {
     const data = await this.githubService.getUser(username);
